@@ -1,0 +1,50 @@
+{
+  "name": "pomidoro-timer",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "watch-js": "watchify app/index.js -t babelify -o public/js/bundle.js --debug --verbose",
+    "watch-sass": "node-sass -w src/ -o public/css/",
+    "watch": "npm run watch-js & npm run watch-sass"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dikiigr/desktop-pomidoro-timer.git"
+  },
+  "keywords": [
+    "pomidoro-timer"
+  ],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dikiigr/desktop-pomidoro-timer/issues"
+  },
+  "homepage": "https://github.com/dikiigr/desktop-pomidoro-timer#readme",
+  "dependencies": {
+    "babel-preset-es2015": "^6.13.2",
+    "babel-preset-react": "^6.11.1",
+    "babel-preset-stage-0": "^6.5.0",
+    "babelify": "^7.3.0",
+    "electron-context-menu": "^0.4.0",
+    "electron-prebuilt": "^1.3.3",
+    "electron-reload": "^1.0.2",
+    "jquery": "^3.1.0",
+    "node-sass": "^3.8.0",
+    "react": "^15.3.0",
+    "react-dom": "^15.3.0",
+    "react-redux": "^4.4.5",
+    "react-router": "^2.6.1",
+    "react-router-redux": "^4.0.5",
+    "react-tap-event-plugin": "^2.0.1",
+    "redux": "^3.5.2",
+    "redux-thunk": "^2.1.0",
+    "watchify": "^3.7.0"
+  },
+  "devDependencies": {
+    "debug-menu": "^0.4.0",
+    "material-ui": "^0.17.0",
+    "node-sass": "^3.8.0"
+  }
+}

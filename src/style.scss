@@ -1,0 +1,339 @@
+@import "fonts.scss";
+@import "settings.scss";
+@import "responsive.scss";
+
+/*
+** MAIN SETTINGS
+*/
+body {
+  position: relative;
+  padding-left: $sidebar-width;
+  font-family: Roboto, sans-serif;
+  line-height: 1;
+  font-size: 18px;
+  color: $font-color;
+}
+
+a, a:hover, a:active {
+  text-decoration: none;
+}
+.container{
+  width: 100%;
+  position: relative;
+  height: 100vh;
+  padding: 0 15px;
+}
+.center{
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  transform: translateY(-50%);
+  padding: 0 15px;
+}
+h1, h2, h3, h4, h5, h6{
+  font-weight: 600;
+}
+/*
+** Toolbar
+*/
+#toolbar{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: $sidebar-width;
+  background: $sidebar-background;
+  height: 100vh;
+  color: white;
+  text-align: center;
+  .menu{
+    padding: 0;
+    position: fixed;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: $sidebar-width;
+    list-style: none;
+    a{
+      color: white;
+      display: block;
+      padding: 20px 0;
+      &.active{
+        color: $active-color;
+        text-decoration: none;
+      }
+    }
+    &__item{
+      font-size: 20px;
+      .icon{
+        &__name{
+          margin-top: 10px;
+          text-transform: uppercase;
+          font-weight: 100;
+          font-size: 14px;
+        }
+      }
+    }
+  }
+}
+.page-name{
+  padding-bottom: 15px;
+  margin-bottom: 50px;
+  border-bottom: 2px solid #333;
+}
+/*
+** TIMER
+*/
+.task-section{
+  margin-bottom: 50px;
+  text-align: center;
+  .task-name{
+    font-size: 30px;
+    font-weight: 300;
+    position: relative;
+    &__input{
+      width: 100%;
+      display: block;
+      border: 0;
+      outline: none;
+      font-size: 2em;
+      padding-right: 15px;
+      font-family: Roboto, sans-serif;
+      font-weight: 300;
+      text-align: center;
+    }
+  }
+
+}
+.timer-panel{
+  margin: 0 auto;
+  position: relative;
+  width: 200px;
+  height: 200px;
+  text-align: center;
+  padding-top: 75px;
+  canvas{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 200px;
+    height: 200px;
+  }
+  .digit, .separator{
+    display: inline-block;
+    font-weight: 300;
+  }
+  .minutes{
+    font-size: 50px;
+  }
+  .seconds{
+    font-size: 25px;
+  }
+}
+.buttons{
+  margin-top: 30px;
+  text-align: center;
+}
+/*
+** TASK LIST
+*/
+#task-list{
+  padding-top: 50px;
+}
+.task-list__menu{
+  margin-bottom: 50px;
+  .tl__menu{
+    list-style: none;
+    padding: 0;
+    text-align: center;
+  }
+  .menu__item{
+    display: inline-block;
+    a.active{
+      background: $active-color!important;
+    }
+  }
+}
+.tasks{
+  text-align: center;
+  &__bl{
+    h1{
+      margin: 70px 0 20px 0;
+      font-weight: 400;
+      text-transform: uppercase;
+    }
+  }
+  .task{
+    margin-top: 50px;
+    &__name{
+      display: inline-block;
+      position: relative;
+      font-size: 28px;
+      font-weight: 400;
+      text-transform: uppercase;
+      color: #000;
+      &:after{
+        content: '';
+        display: block;
+        width: 50px;
+        height: 2px;
+        background: #cbcbcb;
+        margin:10px auto 15px auto;
+      }
+    }
+    &__tools{
+      transition: 0.3s all;
+      position: absolute;
+      right: -80px;
+      top: 0px;
+      font-size: 16px;
+      color: #cbcbcb;
+      opacity: 0;
+      .tool{
+        cursor: pointer;
+        display: inline-block;
+        margin-right: 5px;
+        &.play{
+          font-size: 30px;
+        }
+        a{
+          color: #cbcbcb;
+        }
+      }
+    }
+    &:hover{
+      .task__tools{
+        opacity: 1;
+        transition: 0.3s all;
+      }
+    }
+    &__time{
+      margin-bottom: 10px;
+      font-style: italic;
+      font-weight: 300;
+      color: #000;
+      span{
+        color: $active-color;
+      }
+    }
+  }
+}
+/*
+** SETTIGNS
+*/
+#settings{
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  width: 100%;
+  .settings__sec{
+    text-align: center;
+    padding: 25px 0;
+    .sec__title{
+      margin-bottom: 25px;
+      font-size: 22px;
+      font-weight: 300;
+    }
+    .slider{
+      width: 250px;
+      margin: 0 auto;
+      position: relative;
+      height: 50px;
+    }
+    .time, .fulltime{
+      position: absolute;
+      bottom: 0;
+      font-size: 18px;
+      font-weight: 300;
+      font-style: italic;
+    }
+    .time{
+      left: 0;
+      color: $active-color;
+    }
+    .fulltime{
+      right: 0;
+      color: #d7d7d7;
+    }
+  }
+}
+/* UI Slider */
+.uislider{
+  margin:0 auto;
+  width: 100%;
+  height: 12px;
+  position: relative;
+  .line{
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: #d6d6d6;
+    transform: translateY(-50%);
+  }
+  .progress {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    height: 4px;
+    width: 50%;
+    background: $active-color;
+    transform: translateY(-50%);
+  }
+  .roller{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 12px;
+    height: 12px;
+    background: $active-color;
+    border-radius: 50%;
+    transform: translateY(-50%);
+  }
+}
+/* Add Task Form */
+.add-task{
+  width: 500px;
+  margin: 0 auto;
+}
+.add-task__form{
+  margin-top: 50px;
+  .btn-def{
+    background: $active-color;
+    margin: 0;
+  }
+}
+.form-field{
+  margin-bottom: 30px;
+  &__name, &__input{
+    display: inline-block;
+  }
+  &__name{
+    width: 30%;
+    text-transform: uppercase;
+    font-weight: 300;
+  }
+  &__input{
+    width: 68%;
+    input{
+      width: 100%;
+      padding: 8px 15px;
+      outline: none;
+      border-radius: 10px;
+      border: 1px solid grey;
+    }
+  }
+}
+/* Edit Task */
+.edit-task{
+  width: 500px;
+  margin: 0 auto;
+  h1{
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 300;
+  }
+}
